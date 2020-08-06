@@ -21,7 +21,7 @@ destinations = [
 for point in destinations:
   # Get the latitude and longitude from `geocoder`.
   loc = geocoder.arcgis(point)
-  full_api_url = full_api_url = API_BASE_URL + {loc.latlng[0]} + "," + {loc.latlng[1]}
+  full_api_url = API_BASE_URL + {loc.lat} + "," + {loc.lng}
   result = requests.request('GET', full_api_url).json()
   # Print out `geopy`'s results.
   print("{0} is located at ({1:.4f}, {2: .4f})".format(point, loc.latlng[0], loc.latlng[1]))
